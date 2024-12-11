@@ -18,7 +18,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
     private static final String URL = ProfileRestController.REST_URL;
 
     @Test
-    public void shouldReturn401ForUnauthorizedUser() throws Exception {
+    void shouldReturn401ForUnauthorizedUser() throws Exception {
         perform(MockMvcRequestBuilders.get(URL))
                 .andExpect(status().isUnauthorized())
                 .andDo(print());
@@ -26,7 +26,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
 
     @Test
     @WithUserDetails(value = ADMIN_MAIL)
-    public void shouldReturn200GetAccessAdminProfileAndReturnJsonTypeContent() throws Exception {
+    void shouldReturn200GetAccessAdminProfileAndReturnJsonTypeContent() throws Exception {
         perform(MockMvcRequestBuilders.get(URL))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -35,7 +35,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    public void shouldReturn401ForUnauthorizedUserUpdatingProfileWithJsonTypeContent() throws Exception {
+    void shouldReturn401ForUnauthorizedUserUpdatingProfileWithJsonTypeContent() throws Exception {
         perform(MockMvcRequestBuilders.put(URL)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isUnauthorized())
