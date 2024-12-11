@@ -48,7 +48,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
         perform(MockMvcRequestBuilders.put(URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(writeValue(USER_PROFILE_TO)))
-                .andExpect(status().is2xxSuccessful())
+                .andExpect(status().isNoContent())
                 .andDo(print());
     }
 
@@ -58,7 +58,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
         perform(MockMvcRequestBuilders.put(URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(ProfileTestData.getInvalidTo())))
-                .andExpect(status().is4xxClientError())
+                .andExpect(status().isUnprocessableEntity())
                 .andDo(print());
     }
 }
