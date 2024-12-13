@@ -325,3 +325,9 @@ values (6, 1, '2023-05-15 09:05:10', null, 'Data', null, 3, 'epic', 'in_progress
        (5, 118, '2023-05-16 11:10:10', null, 'UI tab of tasks', null, null, null, null, 'high'),
        (11, 118, '2023-05-16 12:30:10', null, 'UI tab of tasks', null, 2, null, null, null);
 
+-- --changeset mickthomson:added_task_activity
+insert into ACTIVITY (AUTHOR_ID, TASK_ID, UPDATED, STATUS_CODE)
+values (13, 7, '2023-05-16 09:05:10.000000', 'in_progress'),
+       (13, 7, '2023-05-16 12:25:10.000000', 'ready_for_review'),
+       (13, 7, '2023-05-16 14:05:10.000000', 'done');
+
